@@ -25,6 +25,7 @@ import TherapistsManagementPage from './pages/TherapistsManagementPage';
 import AnalyticsPage from './pages/AnalyticsPage';
 import VideoSessionPage from './pages/VideoSessionPage';
 import ListServicePage from './pages/ListServicePage';
+import TherapyContentViewer from './pages/TherapyContentViewer';
 
 // Admin Therapy Management
 import AdminTherapyManagement from './pages/AdminTherapyManagement';
@@ -79,8 +80,8 @@ function App() {
             user?.role === 'patient' ? <TherapyModules /> : <Navigate to="/dashboard" />
           } />
 
-          <Route path="/therapy-modules/*" element={
-            user?.role === 'patient' ? <TherapyModules /> : <Navigate to="/dashboard" />
+          <Route path="/therapy-modules/:therapySlug" element={
+            user?.role === 'patient' ? <TherapyContentViewer /> : <Navigate to="/dashboard" />
           } />
           
           <Route path="/chatbot" element={
